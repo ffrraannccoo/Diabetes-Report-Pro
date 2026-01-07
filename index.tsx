@@ -652,8 +652,8 @@ const DiabetesApp = () => {
               <div className="grid grid-cols-2 gap-y-12">
                 <div><p className="text-[10px] font-bold text-slate-400 uppercase">Promedio Glucosa</p><p className="text-4xl font-black mono">{metrics.avg.toFixed(1)} <span className="text-sm">mg/dL</span></p></div>
                 <div><p className="text-[10px] font-bold text-slate-400 uppercase">GMI (HbA1c Est.)</p><p className="text-4xl font-black text-blue-600 mono">{metrics.gmi.toFixed(1)}%</p></div>
-                <div><p className="text-[10px] font-bold text-slate-400 uppercase">Variabilidad (CV)</p><p className="text-4xl font-black mono">{metrics.cv.toFixed(1)}%</p><p className={`text-[10px] font-black mt-1 ${metrics.cv > 36 ? 'text-red-500' : 'text-green-500'}`}>{metrics.cv > 36 ? '⚠️ ALTA (>36%)' : '✓ ESTABLE'}</p></div>
-                <div><p className="text-[10px] font-bold text-slate-400 uppercase">Tiempo en Rango</p><p className="text-4xl font-black text-green-600 mono">{metrics.tir.range.toFixed(1)}%</p><p className={`text-[10px] font-black mt-1 ${metrics.tir.range < 70 ? 'text-red-500' : 'text-green-500'}`}>{metrics.tir.range < 70 ? '⚠️ MEJORABLE (<70%)' : '✓ OBJETIVO'}</p></div>
+                <div><p className="text-[10px] font-bold text-slate-400 uppercase">Variabilidad (CV)</p><p className="text-4xl font-black mono">{metrics.cv.toFixed(1)}%</p><p className={`text-[10px] font-black mt-1 ${metrics.cv > 36 ? 'text-red-500' : 'text-green-500'}`}>{(metrics.cv > 36) ? '⚠️ ALTA (>36%)' : '✓ ESTABLE'}</p></div>
+                <div><p className="text-[10px] font-bold text-slate-400 uppercase">Tiempo en Rango</p><p className="text-4xl font-black text-green-600 mono">{metrics.tir.range.toFixed(1)}%</p><p className={`text-[10px] font-black mt-1 ${metrics.tir.range < 70 ? 'text-red-500' : 'text-green-500'}`}>{(metrics.tir.range < 70) ? '⚠️ MEJORABLE (<70%)' : '✓ OBJETIVO'}</p></div>
               </div>
             </section>
             
@@ -757,8 +757,8 @@ const DiabetesApp = () => {
                     <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="#e2e8f0" />
                     <XAxis dataKey="label" fontSize={10} fontStyle="bold" axisLine={false} tickLine={false} />
                     <YAxis hide />
-                    <Bar dataKey={c.k} barSize={comparison.length > 5 ? 30 : 60} radius={[6, 6, 0, 0]}>
-                      <LabelList dataKey={c.k} position="top" formatter={(v:any)=>v.toFixed(i < 2 ? 1 : 0)} fontSize={11} fontStyle="bold" />
+                    <Bar dataKey={c.k} barSize={(comparison.length > 5) ? 30 : 60} radius={[6, 6, 0, 0]}>
+                      <LabelList dataKey={c.k} position="top" formatter={(v: any) => v.toFixed((i < 2) ? 1 : 0)} fontSize={11} fontStyle="bold" />
                       {comparison.map((entry, index) => (
                          <Cell key={`cell-${index}`} fill={`rgba(59, 130, 246, ${0.3 + (index/comparison.length)*0.7})`} />
                       ))}
@@ -832,7 +832,7 @@ const DiabetesApp = () => {
                    <Bar dataKey="count" fill="#64748b" radius={[3, 3, 0, 0]} isAnimationActive={false}>
                      <Cell fill="#ef4444" opacity={0.3} /> {/* <70 */}
                      {histogram.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.bin < 70 ? '#ef4444' : entry.bin > 180 ? '#f59e0b' : '#72c084'} />
+                        <Cell key={`cell-${index}`} fill={(entry.bin < 70) ? '#ef4444' : (entry.bin > 180) ? '#f59e0b' : '#72c084'} />
                      ))}
                    </Bar>
                    <ReferenceLine x={70} stroke="#ef4444" strokeDasharray="5 5" />
