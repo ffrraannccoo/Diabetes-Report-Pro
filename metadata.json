@@ -1,0 +1,5 @@
+{
+  "name": "Diabetes Report Infographic",
+  "description": "Generador profesional de informes estadísticos para diabetes en formato A4 apaisado. Procesa datos de LibreView y MySugr para facilitar el análisis médico.",
+  "requestFramePermissions": []
+}

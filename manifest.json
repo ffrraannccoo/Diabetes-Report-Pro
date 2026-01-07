@@ -1,0 +1,16 @@
+{
+  "name": "Diabetes Report Pro",
+  "short_name": "DiabetesPro",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2867/2867305.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
