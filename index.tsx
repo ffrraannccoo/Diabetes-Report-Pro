@@ -758,7 +758,7 @@ const DiabetesApp = () => {
                     <XAxis dataKey="label" fontSize={10} fontStyle="bold" axisLine={false} tickLine={false} />
                     <YAxis hide />
                     <Bar dataKey={c.k} barSize={comparison.length > 5 ? 30 : 60} radius={[6, 6, 0, 0]}>
-                      <LabelList dataKey={c.k} position="top" formatter={(v:any)=>v.toFixed(i<2?1:0)} fontSize={11} fontStyle="bold" />
+                      <LabelList dataKey={c.k} position="top" formatter={(v:any)=>v.toFixed(i < 2 ? 1 : 0)} fontSize={11} fontStyle="bold" />
                       {comparison.map((entry, index) => (
                          <Cell key={`cell-${index}`} fill={`rgba(59, 130, 246, ${0.3 + (index/comparison.length)*0.7})`} />
                       ))}
@@ -898,7 +898,13 @@ const DiabetesApp = () => {
                 <XAxis dataKey="hour" fontSize={11} fontStyle="bold" axisLine={false} tickLine={false} unit="h" />
                 <YAxis domain={[0, 100]} fontSize={11} fontStyle="bold" axisLine={false} tickLine={false} />
                 <Bar dataKey="tir" fill={COLORS.inRange} radius={[4, 4, 0, 0]} isAnimationActive={false} />
-                <ReferenceLine y={70} stroke="#ef4444" strokeDasharray="8 4" strokeWidth={2} label={{ value: 'Obj 70%', position: 'right', fontSize: 10, fill: '#ef4444', fontStyle: 'bold' }} />
+                <ReferenceLine 
+                  y={70} 
+                  stroke="#ef4444" 
+                  strokeDasharray="8 4" 
+                  strokeWidth={2} 
+                  label={{ value: 'Obj 70%', position: 'right', fontSize: 10, fill: '#ef4444', fontStyle: 'bold' }} 
+                />
               </BarChart>
             </ResponsiveContainer>
           </div>
